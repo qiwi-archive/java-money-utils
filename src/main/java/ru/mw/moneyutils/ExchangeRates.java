@@ -1,4 +1,4 @@
-package ru.mw.amountutils;
+package ru.mw.moneyutils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -36,7 +36,7 @@ public class ExchangeRates {
      *
      * @param fromCurrency currency to convert from
      * @param toCurrency   currency to convert to
-     * @throws ru.mw.amountutils.RateUnavailableException if provided pair of rates is not stored.
+     * @throws ru.mw.moneyutils.RateUnavailableException if provided pair of rates is not stored.
      */
     public BigDecimal getRate(Currency fromCurrency, Currency toCurrency) {
         BigDecimal rate = mRates.get(new CurrencyPair(fromCurrency, toCurrency));
@@ -53,10 +53,10 @@ public class ExchangeRates {
      *
      * @param convertFrom amount to convert from
      * @param convertTo   currency to convert to
-     * @see ru.mw.amountutils.Amount
+     * @see Money
      * @see java.math.RoundingMode#UP
      */
-    public Amount convert(Amount convertFrom, Currency convertTo) {
+    public Money convert(Money convertFrom, Currency convertTo) {
         return convert(convertFrom, convertTo, 2, RoundingMode.UP);
     }
 
@@ -65,16 +65,16 @@ public class ExchangeRates {
      *
      * @param convertFrom amount to convert from
      * @param convertTo   currency to convert to
-     * @see ru.mw.amountutils.Amount
+     * @see Money
      * @see java.math.RoundingMode
      * @see java.math.BigDecimal#setScale(int, java.math.RoundingMode)
      */
-    public Amount convert(Amount convertFrom, Currency convertTo, int roundingScale,
+    public Money convert(Money convertFrom, Currency convertTo, int roundingScale,
             RoundingMode roundingMode) {
         BigDecimal rate = getRate(convertFrom.getCurrency(), convertTo);
         BigDecimal convertedSum = convertFrom.getSum().multiply(rate)
                 .setScale(roundingScale, roundingMode);
-        return new Amount(convertedSum, convertTo);
+        return new Money(convertedSum, convertTo);
     }
 
     /**

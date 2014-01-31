@@ -1,4 +1,4 @@
-package ru.mw.amountutils;
+package ru.mw.moneyutils;
 
 import java.util.HashMap;
 import java.util.Map;

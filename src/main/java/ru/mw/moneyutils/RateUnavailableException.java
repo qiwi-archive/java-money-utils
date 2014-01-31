@@ -1,4 +1,4 @@
-package ru.mw.amountutils;
+package ru.mw.moneyutils;
 
 /**
  * Created by nixan on 01.02.14.

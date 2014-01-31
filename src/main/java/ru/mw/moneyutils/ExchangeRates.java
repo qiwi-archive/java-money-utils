@@ -74,7 +74,7 @@ public class ExchangeRates {
         BigDecimal rate = getRate(convertFrom.getCurrency(), convertTo);
         BigDecimal convertedSum = convertFrom.getSum().multiply(rate)
                 .setScale(roundingScale, roundingMode);
-        return new Money(convertedSum, convertTo);
+        return new Money(convertTo, convertedSum);
     }
 
     /**
@@ -129,6 +129,34 @@ public class ExchangeRates {
         public String toString() {
             return String.format("%s => %s", mFromCurrency.getCurrencyCode(),
                     mToCurrency.getCurrencyCode());
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+
+            CurrencyPair that = (CurrencyPair) o;
+
+            if (!mFromCurrency.equals(that.mFromCurrency)) {
+                return false;
+            }
+            if (!mToCurrency.equals(that.mToCurrency)) {
+                return false;
+            }
+
+            return true;
+        }
+
+        @Override
+        public int hashCode() {
+            int result = mFromCurrency.hashCode();
+            result = 31 * result + mToCurrency.hashCode();
+            return result;
         }
     }
 

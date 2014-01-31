@@ -15,7 +15,7 @@ public class Money {
 
     private final BigDecimal mSum;
 
-    public Money(BigDecimal sum, Currency currency) {
+    public Money(Currency currency, BigDecimal sum) {
         mSum = sum;
         mCurrency = currency;
     }

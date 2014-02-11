@@ -32,6 +32,14 @@ public final class CurrencyUtils {
         return ISO4217AlphaToNumeric.getInstance().getNumeric(alpha);
     }
 
+    public static final String getAlphaCodeFromCurrency(Currency currency) {
+        return currency.getCurrencyCode();
+    }
+
+    public static final Integer getNumericCodeFromCurrency(Currency currency) {
+        return ISO4217AlphaToNumeric.getInstance().getNumeric(currency.getCurrencyCode());
+    }
+
     private static class ISO4217AlphaToNumeric {
 
         private final BidirectionalMap<String, Integer> mAlphaToNumeric

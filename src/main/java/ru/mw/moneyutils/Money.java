@@ -22,9 +22,6 @@ public class Money implements Serializable {
         mSum = sum;
         mCurrency = currency;
     }
-    public Money(Currency currency, String sum) {
-        this(currency, new BigDecimal(sum));
-    }
 
     public BigDecimal getSum() {
         return mSum;

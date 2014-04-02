@@ -39,6 +39,9 @@ public class ExchangeRates {
      * @throws ru.mw.moneyutils.RateUnavailableException if provided pair of rates is not stored.
      */
     public BigDecimal getRate(Currency fromCurrency, Currency toCurrency) {
+        if (fromCurrency.equals(toCurrency)) {
+            return BigDecimal.ONE;
+        }
         BigDecimal rate = mRates.get(new CurrencyPair(fromCurrency, toCurrency));
         if (rate == null) {
             throw new RateUnavailableException();

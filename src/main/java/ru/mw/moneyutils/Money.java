@@ -37,9 +37,13 @@ public class Money implements Serializable {
     }
 
     public String toString(Locale locale) {
-        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+        NumberFormat numberFormat = null;
         if (!getCurrency().getCurrencyCode().equals(UNKNOWN_CURRENCY_ISO4217_CODE)) {
+            numberFormat = NumberFormat.getCurrencyInstance(locale);
             numberFormat.setCurrency(getCurrency());
+        } else {
+            numberFormat = NumberFormat.getNumberInstance(locale);
+            numberFormat.setMaximumFractionDigits(2);
         }
         try {
             NumberFormat.class.getMethod("setRoundingMode", RoundingMode.class)

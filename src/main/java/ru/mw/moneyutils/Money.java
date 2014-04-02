@@ -165,5 +165,10 @@ public class Money implements Serializable {
             throw new IllegalArgumentException(
                     "To perform operation there must be at least two money amounts");
         }
+        Money[] convertedAmounts = new Money[money.length];
+        for (int i = 0; i < money.length; i++) {
+            convertedAmounts[i] = exchangeRates.convert(money[i], targetCurrency);
+        }
+        return convertedAmounts;
     }
 }

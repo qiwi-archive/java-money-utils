@@ -1,21 +1,3 @@
 apply plugin: 'java'
-apply plugin: 'maven-publish'
+
 sourceCompatibility = 1.6
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'com.qiwi.utils'
-            artifactId = 'money-utils'
-            version = '1.0.0'
-
-            from components.java
-        }
-    }
-}
-
-model {
-    tasks.generatePomFileForMavenPublication {
-        destination = file('build/publications/maven/pom.xml')
-    }
-}

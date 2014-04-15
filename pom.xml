@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.qiwi.utils</groupId>
+    <artifactId>money-utils</artifactId>
+    <version>1.0.0</version>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>Snapshots</id>
+            <name>Snapshots Repository</name>
+            <url>dav:https://maven.osmp.ru/nexus/content/repositories/snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+        <repository>
+            <id>Releases</id>
+            <name>Releases Repository</name>
+            <url>dav:https://maven.osmp.ru/nexus/content/repositories/releases</url>
+            <uniqueVersion>false</uniqueVersion>
+        </repository>
+    </distributionManagement>
+</project>

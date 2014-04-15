@@ -13,3 +13,9 @@ publishing {
         }
     }
 }
+
+model {
+    tasks.generatePomFileForMavenPublication {
+        destination = file('build/publications/maven/pom.xml')
+    }
+}

@@ -12,13 +12,4 @@ publishing {
             from components.java
         }
     }
-    repositories {
-        maven {
-            credentials {
-                username System.getProperty('system.teamcity.auth.password')
-                password System.getProperty('system.teamcity.auth.userId')
-            }
-            url 'https://maven.osmp.ru/nexus/content/groups/public'
-        }
-    }
 }
